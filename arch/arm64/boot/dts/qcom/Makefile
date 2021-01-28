@@ -39,6 +39,17 @@ dtb-$(CONFIG_SANDERS_DTB) += \
 
 endif
 
+ifeq ($(CONFIG_HANNAH_DTB),y)
+dtb-$(CONFIG_ARCH_MSM8917) += msm8917-hannah-p0.dtb
+dtb-$(CONFIG_ARCH_MSM8937) += msm8937-hannah-p0.dtb
+dtb-$(CONFIG_ARCH_MSM8940) += msm8940-hannah-p0.dtb
+endif
+
+ifeq ($(CONFIG_JAMES_DTB),y)
+dtb-$(CONFIG_ARCH_MSM8917) += msm8917-james-p0.dtb
+dtb-$(CONFIG_ARCH_MSM8920) += msm8920-james-p0.dtb
+endif
+
 ifneq ($(CONFIG_MMI_DTB),y)
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 	dtbo-$(CONFIG_ARCH_SDM845) += \
@@ -86,7 +97,7 @@ ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 		sda845-v2.1-cdp-sdxpoorwills-overlay.dtbo \
 		sda845-v2.1-mtp-sdxpoorwills-overlay.dtbo \
 		sda845-v2-mtp-sdxpoorwills-overlay.dtbo
-		
+
 sdm845-cdp-overlay.dtbo-base := sdm845.dtb
 sdm845-mtp-overlay.dtbo-base := sdm845.dtb
 sdm845-qrd-overlay.dtbo-base := sdm845.dtb
